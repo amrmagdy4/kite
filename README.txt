@@ -1,7 +1,7 @@
 Kite: A Microblog Data Management System
 =========================================
 
-Kite is an open-source system that is built on top of Apache Ignite to manage Microblogs data at scale. Kite allows application developers to seamlessly exploit the microb-length data, like tweets, online reviews, user comments on news media or social media, and user check-ins, that is posted everyday by hundreds of millions of web users. Kite is tailored for the requirements of Microblogs applications and supports efficient queries on arbitrary attributes of Microblogs data hiding all the data management complexity of such unique data.
+Kite is an open-source system to query Twitter-like data in real time. Kite is a distributed system that is built on top of Apache Ignite to manage Twitter-like data at scale. If you are working on analyzing or building applications on top of tweets, Kite allows you to seamlessly exploit this data, that comes in huge numbers, without worrying about how to manage the data itself, just connect and fly with Kite. In general, Kite is managing any micro-length data, called Microblogs, not just Twitter data. Kite is tailored for the requirements of Microblogs applications and supports efficient queries on arbitrary attributes of Microblogs to support a myriad of applications.
 
 The main features of Kite includes:
 * Connect Microblogs streams of arbitrary attributes and schema from local and remote sources.

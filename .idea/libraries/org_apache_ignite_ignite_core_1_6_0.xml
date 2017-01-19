@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="org.apache.ignite:ignite-core:1.6.0" type="repository">
+    <properties maven-id="org.apache.ignite:ignite-core:1.6.0" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/ignite/ignite-core/1.6.0/ignite-core-1.6.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/cache/cache-api/1.0.0/cache-api-1.0.0.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/gridgain/ignite-shmem/1.0.0/ignite-shmem-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

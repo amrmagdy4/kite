@@ -1,0 +1,6 @@
+port number
+path to data folder
+buffer size (number of Microblogs to buffer in main-memory)
+rate (number of Microblogs to send every second)
+maximum chunk size (maximum number of Microblogs to be sent in one chunk)
+tcp or udp (currently udp is not implemented)

@@ -1,0 +1,81 @@
+CREATE STREAM stream1 (id:Long, mtime:Timestamp,keyword:String, location:GeoLocation,username:String) FROM Network_TCP(128.100.14.65:1344) FORMAT CSV(0,1,4,3,2)
+
+CREATE INDEX HASH index1 ON stream1(keyword)
+					
+CREATE INDEX HASH index1 ON stream1(keyword) OPTIONS 2000000,20
+					
+CREATE INDEX SPATIAL GRID index2 ON stream1(location)
+
+CREATE INDEX SPATIAL GRID index2 ON stream1(location) OPTIONS 2000000,20,90,-90,180,-180,180,360
+
+CREATE INDEX HASH index3 ON stream1(location)
+
+DROP INDEX index1 stream1
+
+DROP STREAM stream1
+
+SELECT id, keyword FROM stream1 WHERE keyword = no
+
+SELECT id, keyword FROM stream1
+
+SELECT id, keyword FROM stream1 topk 17
+
+SELECT id, keyword FROM stream1 where keyword = obama topk 70
+
+SELECT id, keyword FROM stream1 where keyword = obama and location within [90,-90,180,-180] topk 70
+
+SELECT id, keyword FROM stream1 where location within [90,-90,180,-180] topk 70
+
+SELECT id, keyword FROM stream1 where location within [1,-1,1,-1] topk 70
+
+SELECT location, keyword FROM stream1 where location within [1,-1,1,-1] topk 70
+
+SELECT id, keyword FROM stream1 where keyword = obama or location within [90,-90,180,-180] topk 20
+
+SELECT id, keyword FROM stream1 where location within [90,-90,180,-180] or keyword = obama topk 20
+
+SELECT id, keyword FROM stream1 where keyword = obama and location within [9,-9,18,-18] topk 70
+
+SELECT id, keyword FROM stream1 where keyword = obama or location within [9,-9,18,-18] topk 70
+
+SELECT * FROM stream1 where keyword = obama or location within [59,-59,78,-78] topk 70
+
+SELECT * FROM stream1 where keyword = obama and location within [59,-59,78,-78] topk 70
+
+SELECT id, keyword FROM stream1 where location within [90,-90,180,-180] topk 20
+
+SELECT id, keyword FROM stream1 where location within [9,-9,18,-18] topk 17
+
+SELECT id, keyword FROM stream1 where (keyword = obama) and (location within [90,-90,180,-180]) topk 20
+
+SELECT id, keyword FROM stream1 where (keyword = obama) or (location within [90,-90,180,-180]) topk 20
+
+SELECT location, keyword FROM stream1 where (keyword = obama) or (location within [90,-90,180,-180]) topk 20
+
+SELECT location, keyword FROM stream1 where (keyword = obama) or (location within [9,-9,18,-18]) topk 20
+
+SELECT id, keyword FROM stream1 where (keyword = obama and location within [90,-90,180,-180]) or (keyword = trump and location within [90,-90,180,-180]) topk 70
+
+SELECT id, keyword FROM stream1 where (keyword = obama and location within [90,-90,180,-180]) or (keyword = trump and location within [9,-9,18,-18]) topk 70
+
+SELECT location, keyword FROM stream1 where (keyword = obama and location within [90,-90,180,-180]) or (keyword = trump and location within [9,-9,18,-18]) topk 70
+
+SELECT location, keyword FROM stream1 where (keyword = obama and location within [9,-9,18,-18]) topk 70
+
+SELECT location, keyword FROM stream1 where (keyword = trump and location within [9,-9,18,-18]) topk 70
+
+SELECT id, keyword FROM stream1 where (keyword = obama and location within [90,-90,180,-180]) topk 70
+
+SELECT id, keyword FROM stream1 where keyword = obama topk 70
+
+SELECT id, keyword FROM stream1 where (keyword = obama and location within [90,-90,180,-180]) or keyword=trump topk 67
+
+SELECT id, keyword FROM stream1 where keyword = obama or keyword=trump topk 70
+
+SELECT id, keyword FROM stream1 where (keyword = obama and location within [90,-90,180,-180]) or (keyword = trump) topk 70
+
+SELECT id, keyword FROM stream1 where (keyword = obama and location within [90,-90,180,-180]) or (location within [90,-90,180,-180]) topk 2
+
+SELECT id, keyword FROM stream1 where keyword = obama or keyword = obama
+
+SELECT id, keyword FROM stream1 where (keyword = obama and location within [90,-90,180,-180]) or (keyword = trump and location within [90,-90,180,-180]) topk 70
